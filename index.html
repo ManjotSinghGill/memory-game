@@ -4,14 +4,25 @@
   <meta charset="UTF-8">
   <title>Memory Game</title>
   <link rel="stylesheet" href="style.css"></link>
-  <script src="app.js" charset="utf-8"></script>
+  
 </head>
 <body>
 
-  <h3>Score:<span id="result"></span></h3>
-
-  <div class="grid">
+  <div class="header">
+    <h1>Memory Game</h1>
   </div>
 
+  <h2 id="play-button">Play Now</h2>
+
+  <h3 id="scorecard">Score:<span id="result"></span></h3>
+
+  <div id="grid">
+  </div>
+
+  <h3 id="play-again" onclick="reloadPage()">Play Again</h3>
+
+  <p>Memory Game, also known as the Concentration card game or Matching Game, is a simple card game where you need to match pairs by turn over 2 cards at a time. There are so many versions of it it is hard to in down it's exact origin. The invention of the memory game is sometimes attributed to Christopher Louis Pelman and the game is often called Pelmanism.</p>
+
 </body>
+<script src="app.js" charset="utf-8"></script>
 </html>

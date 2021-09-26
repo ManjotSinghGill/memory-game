@@ -1,5 +1,22 @@
-document.addEventListener('DOMContentLoaded', () =>{
+const play = document.getElementById('play-button');
 
+play.addEventListener('click', () =>{
+
+  play.style.display = 'none';
+
+  const playAgain = document.getElementById('play-again');
+  const scoreCard = document.getElementById('scorecard');
+  const grid = document.getElementById('grid');
+  const resultDisplay = document.querySelector('#result');
+  
+  var cardsChosen= [];
+  var cardsChosenId = [];
+  const cardsWon = [];
+
+  playAgain.style.display = 'block';
+  scoreCard.style.display = 'block';
+  grid.style.display = 'flex';
+  
   //cards
   const cardArray = [
     {
@@ -54,12 +71,6 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   cardArray.sort(() => 0.5 - Math.random());
 
-  const grid = document.querySelector('.grid');
-  const resultDisplay = document.querySelector('#result');
-  var cardsChosen= [];
-  var cardsChosenId = [];
-  const cardsWon = [];
-
   //Flip card
   function flipcard() {
     var cardId = this.getAttribute('data-id');
@@ -78,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     const optionOneId = cardsChosenId[0];
     const optionTwoId = cardsChosenId[1];
     if (cardsChosen[0] === cardsChosen[1]){
-      alert('You found a match!');
       cards[optionOneId].setAttribute('src', 'images/white.png');
       cards[optionTwoId].setAttribute('src', 'images/white.png');
       cards[optionOneId].removeEventListener("click", flipcard); 
@@ -93,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     cardsChosenId = [];
     if (cardsWon.length == cardArray.length/2) {
       resultDisplay.textContent = 'Congratulations, you found them all!';
+
     }
     else{
       resultDisplay.textContent = cardsWon.length;
@@ -114,3 +125,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 createBoard();
 
 })
+
+function reloadPage() {
+  window.location.reload();
+}
